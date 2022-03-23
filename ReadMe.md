@@ -20,8 +20,31 @@ or with watch
 
 `dotnet run`
 
+## API
+
+curl --request GET \
+  --url https://localhost:7034/blog
+
+```
+curl --request POST \
+  --url https://localhost:7034/blog \
+  --header 'Content-Type: application/json' \
+  --data '{
+		"title": "Third Post",
+		"views": 0,
+		"content": "Some third random post from somewhere",
+		"excerpt": "Some third random",
+		"coverImagePath": "image1.jpg",
+		"public": true
+}'
+```
+
+
 ## Todo
 
-Add update/Create/Delete to Views
-Add Firebase authentication
-Configure Database location
+* Add update/Create/Delete to Views
+* Add swagger (maybe)
+* Add Firebase authentication
+* add auth protection to api
+* Configure Database location
+* sort out table rendering
