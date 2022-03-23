@@ -1,0 +1,63 @@
+﻿@{
+ViewData["Title"] = "Blog View";
+
+string heading = "Blog View";
+string test2 = "123";
+string newString = String.Format("{0} {1}", heading, test2);
+@* string message = "World"; *@
+}
+
+<div class="text-center">
+
+    <div class="h-full bg-gray-200 text-gray-800 p-4 lg:p-8" x-data="alpineInstance()" x-init="fetch('https://localhost:7034/blog')
+                      .then(response => response.json())
+                      .then(data => posts = data)">
+        <p class="text-xl text-gray-600 font-light mb-4" x-html="intro">
+            <!-- intro text -->
+        </p>
+        <div class="flex items-center">
+        <table class="shadow-lg bg-white border-separate">
+            <tr>
+                <th class="bg-blue-100 border text-left px-8 py-4">Title</th>
+                <th class="bg-blue-100 border text-left px-8 py-4">Content</th>
+                <th class="bg-blue-100 border text-left px-8 py-4">Excerpt</th>
+            </tr>
+            <template x-for="post in posts" :key="post.id">
+                <tr>
+
+                    <td class="border px-8 py-4" x-text="post.title"></td>
+                    <td class="border px-8 py-4" x-text="post.content"></td>
+                    <td class="border px-8 py-4" x-text="post.excerpt"></td>
+                    @* <a class="text-blue-600 hover:text-blue-700 mr-4 block" x-bind:href="'mailto:' + user.email"
+                        x-text="user.email"></a> *@
+                    @* <a class="text-blue-600 hover:text-blue-700 block" x-bind:href="'https://' + user.website"
+                        x-text="user.website"></a> *@
+                </tr>
+            </template>
+
+        </table>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function alpineInstance() {
+        return {
+            title: 'Alpine.js',
+            intro: 'Implement a simple <code class="text-md text-pink-600">fetch()</code> request to render a list of items using Alpine.js :)',
+            posts: [],
+        }
+    }
+    function greet() {
+        @* alert("GREET called") *@
+  return {
+            message: 'Hello Alpine.js',
+            messageDisplay: '',
+            showMessage() {
+                alert("show message called")
+                this.messageDisplay = this.message;
+            }
+        }
+    }
+</script>

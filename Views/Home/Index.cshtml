@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    string test = "Test";
+    string test2 = "123";
+    string newString = String.Format("{0} {1}", test, test2);
+    string message = "World";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <h1>Hello, @message</h1>
+    <h2>@newString</h2>
+</div>

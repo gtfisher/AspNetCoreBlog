@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Try Me Page";
+
+    string test = "Try Me";
+    string test2 = "123";
+    string newString = String.Format("{0} {1}", test, test2);
+    string message = "World";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Try Me</h1>
+
+    <h1>Hello, @message</h1>
+    <h2>@newString</h2>
+</div>
